@@ -224,9 +224,9 @@ class MinimaxPlayer(IsolationPlayer):
 
         except SearchTimeout:
               # Handle any actions required after timeout as needed
-             
+               return (-1, -1)    
         # Return the best move from the last completed search iteration
-            return best_move
+        return best_move
 
     def minimax(self, game, depth, maximizing_player=True):
         """Implement depth-limited minimax search algorithm as described in
@@ -312,7 +312,7 @@ class AlphaBetaPlayer(IsolationPlayer):
     make sure it returns a good move before the search time limit expires.
     """
 
-    def get_move(self, game, legal_moves, time_left):
+    def get_move(self, game, time_left):
         """Search for the best move from the available legal moves and return a
         result before the time limit expires.
 
@@ -376,7 +376,7 @@ class AlphaBetaPlayer(IsolationPlayer):
 
         except Timeout:
             # Handle any actions required at timeout, if necessary
-          pass  
+          return (-1, -1) 
         # Return the best move from the last completed search iteration
         return result
 
