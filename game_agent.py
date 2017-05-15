@@ -7,8 +7,7 @@ import random
 
 class SearchTimeout(Exception):
     """Subclass base exception for code clarity. """
-    pass
-
+    
 def custom_score(game, player):
     """Calculate the heuristic value of a game state from the point of view
     of the given player.
@@ -224,8 +223,8 @@ class MinimaxPlayer(IsolationPlayer):
             return self.minimax(game, self.search_depth)
 
         except SearchTimeout:
-            pass  # Handle any actions required after timeout as needed
-
+              # Handle any actions required after timeout as needed
+          pass      
         # Return the best move from the last completed search iteration
         return best_move
 
@@ -285,7 +284,7 @@ class MinimaxPlayer(IsolationPlayer):
             # Heuristic score from point of view of maximizing player
             return self.score(game, self), (-1, -1)
 
-        best_move = None
+        best_move = (-1,-1)
         if maximizing_player:
             # Best for maximizing player is highest score
             best_score = float("-inf")
@@ -377,8 +376,7 @@ class AlphaBetaPlayer(IsolationPlayer):
 
         except Timeout:
             # Handle any actions required at timeout, if necessary
-            pass
-
+          pass  
         # Return the best move from the last completed search iteration
         return result
 

@@ -1,0 +1,145 @@
+
+(aind) C:\Users\LMO\Anaconda2\Scripts\Udacity_Game\AIND-Isolation-master>udacity submit isolation
+Submission includes the following files:
+    game_agent.py
+    heuristic_analysis.pdf
+    research_review.pdf
+
+Uploading submission...
+[=========================== 100% ===========================] 843807/843807
+
+Waiting for results...Done!
+
+Results:
+--------
+
+************************************************************************
+                         Test Failure Feedback
+************************************************************************
+
+Failed Test: 2. Test functionality of MinimaxPlayer.minimax()
+----------------------------------------------------------------------
+AssertionError: False is not true : Your MinimaxAgent.minimax function returned a move that was not one of the optimal moves for the given heurisitc.
+Available choices:
+[(4, 3)]
+Your Selection:
+(0, 1)
+
+Test Case Details:
+------------------
+Heuristic: open_move_score
+Depth limit: 2
+Initial Board State:
+     0   1   2   3   4   5   6   7   8
+0  |   |   |   |   |   |   |   |   |   |
+1  |   |   |   |   |   |   |   |   |   |
+2  |   |   | 1 | - |   | 2 | - |   |   |
+3  |   |   | - | - | - | - |   |   |   |
+4  |   |   | - |   | - | - | - |   |   |
+5  |   |   |   | - | - | - | - |   |   |
+6  |   |   |   | - |   | - |   |   |   |
+7  |   |   |   |   |   |   |   |   |   |
+8  |   |   |   |   |   |   |   |   |   |
+
+game._board_state:
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 47, 20]
+
+
+
+Failed Test: 4. Test that MinimaxPlayer successfully plays a full game
+----------------------------------------------------------------------
+Traceback (most recent call last):
+TypeError: get_move() missing 1 required positional argument: 'legal_moves'
+
+During handling of the above exception, another exception occurred:
+
+AssertionError: Your agent raised an error while attempting to play a complete game against another agent.  Make sure that your agent can play an entire game -- including selecting initial moves on an empty board.
+Exception: get_move() missing 1 required positional argument: 'legal_moves'
+
+
+Failed Test: 5. Test interface of AlphaBetaPlayer.alphabeta()
+----------------------------------------------------------------------
+AssertionError: False is not true : The alphabeta method should return a tuple containing board coordinates (x, y). The coordinates should be integers, but the tuple returned by your method contained [<class 'float'>, <class 'tuple'>]
+
+
+Failed Test: 6. Test the interface of AlphaBetaPlayer.get_move()
+----------------------------------------------------------------------
+TypeError: get_move() missing 1 required positional argument: 'time_left'
+
+
+Failed Test: 7. Test functionality of AlphaBetaPlayer.alphabeta()
+----------------------------------------------------------------------
+AssertionError: False is not true : Your AlphaBetaAgent.alphabeta function returned a move that was not one of the optimal moves for the given heurisitc.
+Available choices:
+[(3, 3), (4, 2), (4, 6)]
+Your Selection: (6.0, (3, 3))
+
+Test Case Details:
+------------------
+Heuristic: open_move_score
+Depth limit: 1
+Initial Board State:
+     0   1   2   3   4   5   6   7   8
+0  |   |   |   |   |   |   |   |   |   |
+1  |   |   |   |   |   |   |   |   |   |
+2  |   |   |   |   |   |   | - |   |   |
+3  |   |   |   |   | - |   |   |   |   |
+4  |   |   |   | - | - | 2 |   | - |   |
+5  |   |   |   | - | 1 |   | - |   |   |
+6  |   |   | - |   | - |   | - |   |   |
+7  |   |   |   |   |   |   |   |   |   |
+8  |   |   |   |   |   |   |   |   |   |
+
+game._board_state:
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 49, 41]
+
+
+
+Failed Test: 9. Test iterative deepening in AlphaBetaPlayer.get_move()
+----------------------------------------------------------------------
+TypeError: get_move() missing 1 required positional argument: 'time_left'
+
+
+Failed Test: 10. Test that AlphaBetaPlayer successfully plays a full game
+----------------------------------------------------------------------
+Traceback (most recent call last):
+TypeError: get_move() missing 1 required positional argument: 'legal_moves'
+
+During handling of the above exception, another exception occurred:
+
+AssertionError: Your agent raised an error while attempting to play a complete game against another agent.  Make sure that your agent can play an entire game -- including selecting initial moves on an empty board.
+Exception: get_move() missing 1 required positional argument: 'legal_moves'
+
+
+************************************************************************
+                          Test Result Summary
+************************************************************************
+
+1. Test output interface of MinimaxPlayer.minimax():                   .
+2. Test functionality of MinimaxPlayer.minimax():                      F
+3. Test that minimax() raises SearchTimeout when the timer expires:    .
+4. Test that MinimaxPlayer successfully plays a full game:             F
+5. Test interface of AlphaBetaPlayer.alphabeta():                      F
+6. Test the interface of AlphaBetaPlayer.get_move():                   E
+7. Test functionality of AlphaBetaPlayer.alphabeta():                  F
+8. Test that alphabeta() raises SearchTimeout when the timer expires:  .
+9. Test iterative deepening in AlphaBetaPlayer.get_move():             E
+10. Test that AlphaBetaPlayer successfully plays a full game:          F
+11. Test output interface of custom_score():                           .
+12. Test output interface of custom_score_2():                         .
+13. Test output interface of custom_score_3():                         .
+14. Submission includes heuristic_analysis.pdf:                        .
+15. Submission includes research_review.pdf:                           .
+
+------------------------------------------------------------------------
+            . - Test Passed    F - Test Failed    E - Error
+
+
+
+Details are available in isolation-result-21255.json.
+
+If you would like this version of the project to be reviewed,
+submit isolation-21255.zip to the reviews website.
+
+
+(aind) C:\Users\LMO\Anaconda2\Scripts\Udacity_Game\AIND-Isolation-master>
