@@ -184,7 +184,7 @@ class MinimaxPlayer(IsolationPlayer):
     minimax to return a good move before the search time limit expires.
     """
 
-    def get_move(self, game, time_left):
+    def get_move(self, game, legal_moves, time_left):
         """Search for the best move from the available legal moves and return a
         result before the time limit expires.
 
@@ -304,7 +304,7 @@ class MinimaxPlayer(IsolationPlayer):
                 score, _ = self.minimax(next_state, depth - 1, True)
                 if score < best_score:
                     best_score, best_move = score, move
-        return best_score, best_move
+        return best_move
 
 
 class AlphaBetaPlayer(IsolationPlayer):
