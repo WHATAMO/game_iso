@@ -347,6 +347,7 @@ class AlphaBetaPlayer(IsolationPlayer):
         # TODO: finish this function!
         # Perform any required initializations, including selecting an initial
         # move from the game board (i.e., an opening book), or returning
+        legal_moves = game.get_legal_moves()
         # immediately if there are no legal moves
         if not legal_moves:
             return (-1, -1)
@@ -374,7 +375,7 @@ class AlphaBetaPlayer(IsolationPlayer):
                 if self.method == "alphabeta":
                     _, result = self.alphabeta(game, self.search_depth)
 
-        except Timeout:
+        except timeout:
             # Handle any actions required at timeout, if necessary
           return (-1, -1) 
         # Return the best move from the last completed search iteration
