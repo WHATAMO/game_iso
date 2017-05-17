@@ -347,39 +347,40 @@ class AlphaBetaPlayer(IsolationPlayer):
         # TODO: finish this function!
         # Perform any required initializations, including selecting an initial
         # move from the game board (i.e., an opening book), or returning
-        legal_moves = game.get_legal_moves()
+        best_move = (-1, -1)
         # immediately if there are no legal moves
-        if not legal_moves:
-            return (-1, -1)
-
+        
         # In case there is a timeout before any move is found
-        result = None
-
+        
         try:
             # The search method call (alpha beta or minimax) should happen in
             # here in order to avoid timeout. The try/except block will
             # automatically catch the exception raised by the search method
             # when the timer gets close to expiring
-            if self.iterative:
-                if self.method == "minimax":
-                    for depth in range(10000):
-                        _, move = self.minimax(game, depth)
-                        result = move
-                if self.method == "alphabeta":
-                    for depth in range(10000):
-                        _, move = self.alphabeta(game, depth)
-                        result = move
-            else:
-                if self.method == "minimax":
-                    _, result = self.minimax(game, self.search_depth)
-                if self.method == "alphabeta":
-                    _, result = self.alphabeta(game, self.search_depth)
-
-        except timeout:
+            return self.alphabeta(game, self.search_depth)
+            
+            
+         
+          # if self.iterative == True:
+              #if self.method == "minimax":
+#                    for depth in range(10000):
+#                        _, move = self.minimax(game, depth)
+#                        result = move
+#                if self.method == "alphabeta":
+#                    for depth in range(10000):
+#                        _, move = self.alphabeta(game, depth)
+#                        result = move
+#             else:
+#                    if self.method == "minimax":
+#                        _, result = self.minimax(game, self.search_depth)
+#                    if self.method == "alphabeta":
+#          #              _, result = self.alphabeta(game, self.search_depth)
+          
+        except SearchTimeout:
             # Handle any actions required at timeout, if necessary
-          return (-1, -1) 
+          return(-1,-1) 
         # Return the best move from the last completed search iteration
-        return result
+        return best_move
 
     def alphabeta(self, game, depth, alpha=float("-inf"), beta=float("inf"), maximizing_player=True):
         """Implement depth-limited minimax search with alpha-beta pruning as
