@@ -24,15 +24,16 @@ def custom_score(game, player):
         game (e.g., player locations and blocked cells).
 
     player : object
-        A player instance in the current game (i.e., an object corresponding to
-        one of the player objects `game.__player_1__` or `game.__player_2__`.)
-
-    Returns
+        A player layer objects `game.__player_1__` or `game.__player_2__`.)
+rns
     -------
     float
         The heuristic value of the current game state to the specified player.
+    #instance in the current game (i.e., an object corresponding to
+        one of the p
+    # TOD
+    #RetuO: finish this function!
     """
-    # TODO: finish this function!
     if game.is_loser(player):
         return float("-inf")
 
@@ -304,7 +305,7 @@ class MinimaxPlayer(IsolationPlayer):
                 if score < best_score:
                     best_score, best_move = score, move
         return best_move
-
+        print(best_move)
 
 class AlphaBetaPlayer(IsolationPlayer):
     """Game-playing agent that chooses a move using iterative deepening minimax
@@ -359,28 +360,25 @@ class AlphaBetaPlayer(IsolationPlayer):
             # when the timer gets close to expiring
             return self.alphabeta(game, self.search_depth)
             
-            
-         
-          # if self.iterative == True:
-              #if self.method == "minimax":
-#                    for depth in range(10000):
-#                        _, move = self.minimax(game, depth)
-#                        result = move
-#                if self.method == "alphabeta":
+                 
+#             if self.iterative:
+#                 if self.method == "alphabeta":
 #                    for depth in range(10000):
 #                        _, move = self.alphabeta(game, depth)
 #                        result = move
-#             else:
-#                    if self.method == "minimax":
-#                        _, result = self.minimax(game, self.search_depth)
+#              else:
 #                    if self.method == "alphabeta":
-#          #              _, result = self.alphabeta(game, self.search_depth)
+#                        _, result = self.alphabeta(game, self.search_depth)
           
         except SearchTimeout:
             # Handle any actions required at timeout, if necessary
-          return(-1,-1) 
+          pass 
         # Return the best move from the last completed search iteration
         return best_move
+        print(best_move)
+
+    
+    
 
     def alphabeta(self, game, depth, alpha=float("-inf"), beta=float("inf"), maximizing_player=True):
         """Implement depth-limited minimax search with alpha-beta pruning as
@@ -429,7 +427,8 @@ class AlphaBetaPlayer(IsolationPlayer):
         """
         if self.time_left() < self.TIMER_THRESHOLD:
             raise SearchTimeout()
-
+      
+        
         # TODO: finish this function!
         # Get legal moves for active player
         legal_moves = game.get_legal_moves()
@@ -443,7 +442,7 @@ class AlphaBetaPlayer(IsolationPlayer):
         if depth == 0:
             # Heuristic score from point of view of maximizing player
             return self.score(game, self), (-1, -1)
-
+            print (self.score(game, self), (-1, -1))
 
         # Alpha is the maximum lower bound of possible solutions
         # Alpha is the highest score so far ("worst" highest score is -inf)
@@ -464,6 +463,7 @@ class AlphaBetaPlayer(IsolationPlayer):
                 # Prune if possible
                 if best_score >= beta:
                     return best_score, best_move
+                    print (best_score, best_move)
                 # Update alpha, if necessary
                 alpha = max(alpha, best_score)
         # Else minimizing player
@@ -481,3 +481,4 @@ class AlphaBetaPlayer(IsolationPlayer):
                 # Update beta, if necessary
                 beta = min(beta, best_score)
         return best_move
+        print (best_move)
